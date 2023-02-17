@@ -1,0 +1,5 @@
+quart
+aiohttp
+quart-cors
+python-dotenv
+beautifulsoup4

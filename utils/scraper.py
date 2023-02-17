@@ -1,3 +1,4 @@
+import re
 from urllib.parse import unquote
 
 import aiohttp
@@ -28,6 +29,12 @@ async def scrape_reviews(bot_id: int):
                 break
         else:
             review_data["image"] = "https://cdn.discordapp.com/embed/avatars/0.png"
+
+        review_data["image"] = re.sub(
+            r"https://images.discordapp.net/embed/avatars/\d+.png",
+            "https://cdn.discordapp.com/embed/avatars/0.png",
+            review_data["image"],
+        )
 
         full_review = review.find("div", recursive=False)
         header_data = full_review.find("div", class_="chakra-stack css-8h2221")

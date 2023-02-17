@@ -27,7 +27,7 @@ async def scrape_reviews(bot_id: int):
                 review_data["image"] = unquote(link)
                 break
         else:
-            review_data["image"] = "https://images.discordapp.net/embed/avatars/1.png"
+            review_data["image"] = "https://cdn.discordapp.com/embed/avatars/0.png"
 
         full_review = review.find("div", recursive=False)
         header_data = full_review.find("div", class_="chakra-stack css-8h2221")
